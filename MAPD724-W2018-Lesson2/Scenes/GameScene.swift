@@ -8,25 +8,50 @@
 
 import SpriteKit
 import GameplayKit
+import UIKit
+import AVFoundation
+
+let screenSize = UIScreen.main.bounds
+var screenWidth: CGFloat?
+var screenHeight: CGFloat?
 
 class GameScene: SKScene {
     
+    //Game variables
+    
+    var planeSprite: Plane?
 
     
     override func didMove(to view: SKView) {
-       
+       screenWidth = screenSize.width
+        screenHeight = screenSize.height
+        
+        //add plane
+        
+        self.planeSprite = Plane()
+        self.planeSprite?.position = CGPoint(x: screenWidth! * 0.5, y: 50)
+        self.addChild(self.planeSprite!)
+        
+        print(self.planeSprite?.halfwidth)
+        
+        
     }
     
     
     func touchDown(atPoint pos : CGPoint) {
+        
+        self.planeSprite?.TouchMove(newPos: CGPoint(x: pos.x, y: 50.0))
 
     }
     
     func touchMoved(toPoint pos : CGPoint) {
-    
+    self.planeSprite?.TouchMove(newPos: CGPoint(x: pos.x, y: 50.0))
+        
     }
     
     func touchUp(atPoint pos : CGPoint) {
+        
+        self.planeSprite?.TouchMove(newPos: CGPoint(x: pos.x, y: 50.0))
    
     }
     
@@ -50,5 +75,8 @@ class GameScene: SKScene {
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
+        self.planeSprite?.Update()
+        
+        
     }
 }

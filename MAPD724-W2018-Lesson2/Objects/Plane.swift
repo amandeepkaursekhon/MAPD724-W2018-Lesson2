@@ -24,15 +24,23 @@ class Plane: GameObject {
     
     
     override func CheckBounds() {
-        <#code#>
+        if(self.position.x > screenSize.width - self.halfwidth!)
+        {
+            self.position.x = screenSize.width - self.halfwidth!
+        }
+        
+        if(self.position.x < self.halfwidth!)
+        {
+            self.position.x = self.halfwidth!
+        }
     }
     
     override func Start() {
-        <#code#>
+        
     }
     
     override func Update() {
-        <#code#>
+        self.CheckBounds()
     }
     
     func TouchMove(newPos: CGPoint)
