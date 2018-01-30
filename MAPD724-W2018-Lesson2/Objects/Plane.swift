@@ -12,9 +12,8 @@ class Plane: GameObject {
     
     //constructor
     
-    init()
-    {
-        super.init(imageString: "plane", InitialScale: 1.0)
+    init() {
+        super.init(imageString: "plane", initialScale: 1.0)
         Start()
     }
     
@@ -22,15 +21,14 @@ class Plane: GameObject {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     override func CheckBounds() {
-        if(self.position.x > screenSize.width - self.halfwidth!)
-        {
+        // right boundary
+        if(self.position.x > screenSize.width - self.halfwidth!) {
             self.position.x = screenSize.width - self.halfwidth!
         }
         
-        if(self.position.x < self.halfwidth!)
-        {
+        // left boundary
+        if(self.position.x < self.halfwidth!) {
             self.position.x = self.halfwidth!
         }
     }
@@ -43,9 +41,9 @@ class Plane: GameObject {
         self.CheckBounds()
     }
     
-    func TouchMove(newPos: CGPoint)
-    {
+    func TouchMove(newPos: CGPoint) {
         self.position = newPos
     }
     
 }
+

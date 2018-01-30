@@ -11,52 +11,65 @@ import GameplayKit
 import UIKit
 import AVFoundation
 
+
 let screenSize = UIScreen.main.bounds
 var screenWidth: CGFloat?
 var screenHeight: CGFloat?
 
 class GameScene: SKScene {
     
-    //Game variables
-    
+    // Game Variables
+    var oceanSprite: Ocean?
     var planeSprite: Plane?
-
     
     override func didMove(to view: SKView) {
-       screenWidth = screenSize.width
+        screenWidth = screenSize.width
         screenHeight = screenSize.height
         
-        //add plane
+        // add ocean
+        self.oceanSprite = Ocean()
+        self.addChild(self.oceanSprite!)
         
+        // add plane
         self.planeSprite = Plane()
         self.planeSprite?.position = CGPoint(x: screenWidth! * 0.5, y: 50)
         self.addChild(self.planeSprite!)
         
-        print(self.planeSprite?.halfwidth)
+        // play background engine sound
+        let engineSound = SKAudioNode(fileNamed: "engine.mp3")
+        self.addChild(engineSound)
+        engineSound.autoplayLooped = true
         
+        // preload sounds
+        do {
+            let sounds:[String] = ["thunder", "yay"]
+            for sound in sounds {
+                let path:String = Bundle.main.path(forResource: sound, ofType: "mp3")!
+                let url: URL = URL(fileURLWithPath: path)
+                let player: AVAudioPlayer = try AVAudioPlayer(contentsOf: url)
+                player.prepareToPlay()
+            }
+        } catch {
+            
+        }
         
     }
     
     
     func touchDown(atPoint pos : CGPoint) {
-        
         self.planeSprite?.TouchMove(newPos: CGPoint(x: pos.x, y: 50.0))
-
     }
     
     func touchMoved(toPoint pos : CGPoint) {
-    self.planeSprite?.TouchMove(newPos: CGPoint(x: pos.x, y: 50.0))
-        
+        self.planeSprite?.TouchMove(newPos: CGPoint(x: pos.x, y: 50.0))
     }
     
     func touchUp(atPoint pos : CGPoint) {
-        
         self.planeSprite?.TouchMove(newPos: CGPoint(x: pos.x, y: 50.0))
-   
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-       
+        
         for t in touches { self.touchDown(atPoint: t.location(in: self)) }
     }
     
@@ -74,9 +87,7 @@ class GameScene: SKScene {
     
     
     override func update(_ currentTime: TimeInterval) {
-        // Called before each frame is rendered
+        self.oceanSprite?.Update()
         self.planeSprite?.Update()
-        
-        
     }
 }
