@@ -21,6 +21,8 @@
 		85E22FFA201FED9F00FAD762 /* Dock51.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 85E22FF9201FED8C00FAD762 /* Dock51.ttf */; };
 		85E23000201FFD2E00FAD762 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 85E22FED201FEBF900FAD762 /* Info.plist */; };
 		85E230032020053500FAD762 /* GameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E230022020053500FAD762 /* GameObject.swift */; };
+		85E230052020090100FAD762 /* GameProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E230042020090100FAD762 /* GameProtocol.swift */; };
+		85E230072020098A00FAD762 /* Plane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E230062020098A00FAD762 /* Plane.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		85E22FF7201FED4500FAD762 /* yay.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = yay.mp3; path = ../../Assets/audio/yay.mp3; sourceTree = "<group>"; };
 		85E22FF9201FED8C00FAD762 /* Dock51.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Dock51.ttf; path = ../../Assets/fonts/Dock51.ttf; sourceTree = "<group>"; };
 		85E230022020053500FAD762 /* GameObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameObject.swift; sourceTree = "<group>"; };
+		85E230042020090100FAD762 /* GameProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameProtocol.swift; sourceTree = "<group>"; };
+		85E230062020098A00FAD762 /* Plane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plane.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +105,8 @@
 			isa = PBXGroup;
 			children = (
 				85E230022020053500FAD762 /* GameObject.swift */,
+				85E230042020090100FAD762 /* GameProtocol.swift */,
+				85E230062020098A00FAD762 /* Plane.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -185,8 +191,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				85E230032020053500FAD762 /* GameObject.swift in Sources */,
+				85E230052020090100FAD762 /* GameProtocol.swift in Sources */,
 				85E22FE2201FEBF900FAD762 /* GameScene.swift in Sources */,
 				85E22FE4201FEBF900FAD762 /* GameViewController.swift in Sources */,
+				85E230072020098A00FAD762 /* Plane.swift in Sources */,
 				85E22FDC201FEBF900FAD762 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
