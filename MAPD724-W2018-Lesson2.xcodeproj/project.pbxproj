@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		854F7DE9202012FD00FE5663 /* Ocean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854F7DE8202012FD00FE5663 /* Ocean.swift */; };
 		854F7DED20201ADD00FE5663 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 854F7DEC20201ADD00FE5663 /* Assets.xcassets */; };
+		85A8C1A02029410E00C75926 /* Cloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A8C19F2029410E00C75926 /* Cloud.swift */; };
 		85B224582029300D00AACE84 /* Island.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B224572029300D00AACE84 /* Island.swift */; };
 		85E22FDC201FEBF900FAD762 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E22FDB201FEBF900FAD762 /* AppDelegate.swift */; };
 		85E22FDE201FEBF900FAD762 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 85E22FDD201FEBF900FAD762 /* GameScene.sks */; };
@@ -30,6 +31,7 @@
 /* Begin PBXFileReference section */
 		854F7DE8202012FD00FE5663 /* Ocean.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ocean.swift; sourceTree = "<group>"; };
 		854F7DEC20201ADD00FE5663 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		85A8C19F2029410E00C75926 /* Cloud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cloud.swift; sourceTree = "<group>"; };
 		85B224572029300D00AACE84 /* Island.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Island.swift; sourceTree = "<group>"; };
 		85E22FD8201FEBF900FAD762 /* MAPD724-W2018-Lesson2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MAPD724-W2018-Lesson2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		85E22FDB201FEBF900FAD762 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				85E230062020098A00FAD762 /* Plane.swift */,
 				854F7DE8202012FD00FE5663 /* Ocean.swift */,
 				85B224572029300D00AACE84 /* Island.swift */,
+				85A8C19F2029410E00C75926 /* Cloud.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				854F7DE9202012FD00FE5663 /* Ocean.swift in Sources */,
+				85A8C1A02029410E00C75926 /* Cloud.swift in Sources */,
 				85E230032020053500FAD762 /* GameObject.swift in Sources */,
 				85B224582029300D00AACE84 /* Island.swift in Sources */,
 				85E230052020090100FAD762 /* GameProtocol.swift in Sources */,

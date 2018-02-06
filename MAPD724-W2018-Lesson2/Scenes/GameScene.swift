@@ -16,12 +16,14 @@ let screenSize = UIScreen.main.bounds
 var screenWidth: CGFloat?
 var screenHeight: CGFloat?
 
+
 class GameScene: SKScene {
     
     // Game Variables
     var oceanSprite: Ocean?
     var planeSprite: Plane?
     var islandSprite: Island?
+    var cloudSprites: [Cloud] = []
     
     override func didMove(to view: SKView) {
         screenWidth = screenSize.width
@@ -40,7 +42,12 @@ class GameScene: SKScene {
         self.planeSprite?.position = CGPoint(x: screenWidth! * 0.5, y: 50)
         self.addChild(self.planeSprite!)
         
-     
+     //add clouds
+        for index in 0...2 {
+            let cloud: Cloud = Cloud()
+            cloudSprites.append(cloud)
+            self.addChild(cloudSprites[index])
+        }
         
         // play background engine sound
         let engineSound = SKAudioNode(fileNamed: "engine.mp3")
@@ -97,6 +104,9 @@ class GameScene: SKScene {
         self.oceanSprite?.Update()
         self.islandSprite?.Update()
         self.planeSprite?.Update()
+        for cloud in cloudSprites {
+            cloud.Update()
+        }
         
     }
 }
