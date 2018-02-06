@@ -21,6 +21,7 @@ class GameScene: SKScene {
     // Game Variables
     var oceanSprite: Ocean?
     var planeSprite: Plane?
+    var islandSprite: Island?
     
     override func didMove(to view: SKView) {
         screenWidth = screenSize.width
@@ -30,10 +31,16 @@ class GameScene: SKScene {
         self.oceanSprite = Ocean()
         self.addChild(self.oceanSprite!)
         
+        //add island
+        
+        self.islandSprite = Island()
+        self.addChild(self.islandSprite!)
         // add plane
         self.planeSprite = Plane()
         self.planeSprite?.position = CGPoint(x: screenWidth! * 0.5, y: 50)
         self.addChild(self.planeSprite!)
+        
+     
         
         // play background engine sound
         let engineSound = SKAudioNode(fileNamed: "engine.mp3")
@@ -88,6 +95,8 @@ class GameScene: SKScene {
     
     override func update(_ currentTime: TimeInterval) {
         self.oceanSprite?.Update()
+        self.islandSprite?.Update()
         self.planeSprite?.Update()
+        
     }
 }
