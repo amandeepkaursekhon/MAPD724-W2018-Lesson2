@@ -13,7 +13,7 @@ class Cloud: GameObject {
 
     init() {
         // initialize the object with an image
-        super.init(imageString: "cloud", initialScale: 1.0)
+        super.init(imageString: "cloud", initialScale: 0.6)
         Start()
     }
     
@@ -21,8 +21,14 @@ class Cloud: GameObject {
         fatalError("init(coder:) has not been implemented")
     }
     
+   
+    
     override func Start() {
-        self.setScale(0.6)
+       /* self.setScale(0.6)
+        self.width = (texture?.size().width)! * self.scale!
+        self.height = (texture?.size().height)! * self.scale!
+        self.halfwidth = self.width! * 0.5;
+        self.halfheight = self.height! * 0.5;*/
         self.zPosition = 3
         self.Reset()
         self.dy = 5.0
