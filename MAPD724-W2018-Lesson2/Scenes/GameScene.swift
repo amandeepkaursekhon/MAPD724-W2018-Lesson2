@@ -16,7 +16,6 @@ let screenSize = UIScreen.main.bounds
 var screenWidth: CGFloat?
 var screenHeight: CGFloat?
 
-
 class GameScene: SKScene {
     
     // Game Variables
@@ -24,30 +23,42 @@ class GameScene: SKScene {
     var planeSprite: Plane?
     var islandSprite: Island?
     var cloudSprites: [Cloud] = []
+    var livesLabel: Label?
+    var scoreLabel: Label?
     
     override func didMove(to view: SKView) {
-        screenWidth = screenSize.width
-        screenHeight = screenSize.height
+        screenWidth = frame.width
+        screenHeight = frame.height
         
         // add ocean
         self.oceanSprite = Ocean()
         self.addChild(self.oceanSprite!)
         
-        //add island
-        
+        // add island
         self.islandSprite = Island()
         self.addChild(self.islandSprite!)
+        
         // add plane
         self.planeSprite = Plane()
         self.planeSprite?.position = CGPoint(x: screenWidth! * 0.5, y: 50)
         self.addChild(self.planeSprite!)
         
-     //add clouds
+        // add clouds
         for index in 0...2 {
             let cloud: Cloud = Cloud()
             cloudSprites.append(cloud)
             self.addChild(cloudSprites[index])
         }
+        
+        
+        // add lives label
+        livesLabel = Label(labelString: "Lives: 5", position: CGPoint(x: 20.0, y: frame.height - 20.0), fontSize: 30.0, fontName: "Dock51", fontColor: SKColor.yellow, isCentered: false)
+        self.addChild(livesLabel!)
+        
+        // add score label
+        scoreLabel = Label(labelString: "Score: 99999", position: CGPoint(x: frame.width * 0.45, y: frame.height - 20.0), fontSize: 30.0, fontName: "Dock51", fontColor: SKColor.yellow, isCentered: false)
+        self.addChild(scoreLabel!)
+        
         
         // play background engine sound
         let engineSound = SKAudioNode(fileNamed: "engine.mp3")
@@ -105,14 +116,34 @@ class GameScene: SKScene {
         self.islandSprite?.Update()
         self.planeSprite?.Update()
         
-        
         CollisionManager.CheckCollision(scene: self, object1: planeSprite!, object2: islandSprite!)
-        
         
         for cloud in cloudSprites {
             cloud.Update()
             CollisionManager.CheckCollision(scene: self, object1: planeSprite!, object2: cloud)
         }
         
+        // Update Labels
+        if(ScoreManager.Lives > 0) {
+            livesLabel?.text = "Lives: \(ScoreManager.Lives)"
+            scoreLabel?.text = "Score: \(ScoreManager.Score)"
+        }
+        else {
+            if let view = self.view {
+                if let scene = SKScene(fileNamed: "GameOverScene") {
+                    scene.scaleMode = .aspectFit
+                    view.presentScene(scene)
+                }
+            }
+        }
+        
     }
 }
+
+
+
+
+
+
+
+
